@@ -15,7 +15,7 @@ class CalculatorStartTest extends \PHPUnit_Framework_TestCase{
     }
 
     /**
-     * @testCalculator
+     * @test Calculator
      */
     public function testCalculator(){
 
@@ -27,7 +27,7 @@ class CalculatorStartTest extends \PHPUnit_Framework_TestCase{
     }
 
     /**
-     * @testAcceptsMultipleArgsToAddNumber
+     * @test AcceptsMultipleArgsToAddNumber
      */
     public function testAcceptsMultipleArgsToAddNumber(){
 
@@ -36,18 +36,27 @@ class CalculatorStartTest extends \PHPUnit_Framework_TestCase{
 
     }
 
-    /*
-     * @testMultiply
+    /**
+     * @expectedException InvalidArgumentException
+     */
+    public function testRequireNumberValue(){
+
+        $this->calculator->add('five');
+
+    }
+
+    /**
+     * @test Multiply
      */
     public function testMultiply(){
 
-        $this->calculator->multiply(3,2,4);
+        $this->calculator->multiply(1,2,3,4);
         $this->assertEquals(24, $this->calculator->getResult());
 
     }
 
-    /*
-     * @testMinus
+    /**
+     * @test Minus
      *
      */
     public function testMinus(){

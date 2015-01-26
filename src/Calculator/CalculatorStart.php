@@ -1,58 +1,1 @@
-<?php
-
-namespace Calculator;
-
-class CalculatorStart{
-
-    protected $total = 0;
-
-    public function __construct(){
-
-
-    }
-
-    public function add(){
-
-        $args = func_get_args();
-
-        foreach($args as $arg){
-
-            $this->total += $arg;
-
-        }
-
-
-    }
-
-    public function minus(){
-
-        $args = func_get_args();
-
-        foreach($args as $arg){
-
-            $this->total -= $arg;
-
-        }
-
-
-    }
-
-    public function multiply(){
-
-        $args = func_get_args();
-
-        foreach($args as $arg){
-
-            $this->total *= $arg;
-
-        }
-
-    }
-
-    public function getResult(){
-
-        return $this->total;
-
-    }
-
-}
+<?phpnamespace Calculator;class CalculatorStart{    /**     * @var int     */    protected $total = 0;    protected $result;    /**     * @param $numbers     * @param $symbol     */    protected function calculate($numbers, $symbol){        foreach($numbers as $number){            $this->calcul($number, $symbol);        }    }    /**     * @param $number     * @param $symbol     * @throws \InvalidArgumentException     */    protected function calcul($number, $symbol){        if (!is_numeric($number)){            throw new \InvalidArgumentException(sprintf('(%s), is not numeric', $number));        }        switch($symbol){            case '+':                $this->total += $number;                break;            case '-':                ($this->total == 0)? $this->total = $number : $this->total -=$number;                break;            case '*':                ($this->total == 0)? $this->total = $number : $this->total *=$number;                break;        }    }    /**     *     */    public function add(){        $numbers = func_get_args();        $this->calculate($numbers, '+');    }    public function minus(){        $numbers = func_get_args();        $this->calculate($numbers, '-');    }    public function multiply(){        $numbers = func_get_args();        $this->calculate($numbers, '*');    }    /**     * @return int     */    public function getResult(){        return $this->total;    }}
