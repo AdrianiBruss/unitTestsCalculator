@@ -1,0 +1,20 @@
+{
+    "name": "adrienbrussolo/calculator",
+    "require": {},
+    "require-dev": {
+        "phpunit/phpunit": "4.4.*"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "AdrianiBruss",
+            "email": "abrussolo@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+            "": ["src/", "tests/"]
+        }
+    }
+}
