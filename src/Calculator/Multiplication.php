@@ -3,19 +3,25 @@
  * Created by PhpStorm.
  * User: adrienbrussolo
  * Date: 26/01/15
- * Time: 14:45
+ * Time: 15:33
  */
 
 namespace Calculator;
 
 
-class Addition implements iOperator{
+class Multiplication implements iOperator {
 
-    protected $firstCurrent = 0;
+    protected $firstCurrent = 1;
 
     public function run($num, $current){
 
-        return $num + $current;
+        if ($current == 0){
+
+
+
+        }
+
+        return $num * $current;
 
     }
 

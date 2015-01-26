@@ -11,14 +11,22 @@ namespace Calculator;
 
 class Division implements iOperator{
 
+    protected $firstCurrent = 1;
 
     public function run($num, $current){
 
         if ($current == 0){
+
             throw new \InvalidArgumentException('No / by 0');
         }
 
-        return rand($num/$current);
+        return $num / $current;
+
+    }
+
+    public function getFirstCurrent(){
+
+        return $this->firstCurrent;
 
     }
 
